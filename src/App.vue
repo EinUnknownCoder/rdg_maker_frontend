@@ -38,12 +38,32 @@
     </v-app-bar>
 
     <v-main>
+      <v-simple-table>
+        <thead>
+          <tr>
+            <th>
+              Title
+            </th>
+            <th>
+              Artist
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr v-for="entry in info" :key="entry.URL">
+            <td>{{entry.Title}}</td>
+            <td>{{entry.Artist}}</td>
+          </tr>
+        </tbody>
+      </v-simple-table>
       <HelloWorld/>
     </v-main>
   </v-app>
 </template>
 
 <script>
+import axios from 'axios';
+
 import HelloWorld from './components/HelloWorld';
 
 export default {
@@ -54,7 +74,13 @@ export default {
   },
 
   data: () => ({
-    //
+    info: null
   }),
+
+  mounted() {
+    axios
+    .get('http://127.0.0.1:8000/all')
+    .then(response => (this.info = response.data))
+  }
 };
 </script>
