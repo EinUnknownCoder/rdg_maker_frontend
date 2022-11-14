@@ -2,85 +2,47 @@
   <v-app>
     <v-app-bar
       app
-      color="primary"
+      color="Black"
       dark
     >
       <div class="d-flex align-center">
-        <v-img
-          alt="Vuetify Logo"
-          class="shrink mr-2"
-          contain
-          src="https://cdn.vuetifyjs.com/images/logos/vuetify-logo-dark.png"
-          transition="scale-transition"
-          width="40"
-        />
-
-        <v-img
-          alt="Vuetify Name"
-          class="shrink mt-1 hidden-sm-and-down"
-          contain
-          min-width="100"
-          src="https://cdn.vuetifyjs.com/images/logos/vuetify-name-dark.png"
-          width="100"
-        />
+        <h1>RDG Maker</h1>
       </div>
 
       <v-spacer></v-spacer>
 
-      <v-btn
-        href="https://github.com/vuetifyjs/vuetify/releases/latest"
-        target="_blank"
-        text
-      >
-        <span class="mr-2">Latest Release</span>
-        <v-icon>mdi-open-in-new</v-icon>
-      </v-btn>
+      <h3>By EinUnknownCoder</h3>
+
+      <template v-slot:extension>
+        <v-tabs align-with-title>
+          <v-tab @click="tab = 0">Hello World</v-tab>
+          <v-tab @click="tab = 1">Create Playlist</v-tab>
+          <v-tab @click="tab = 2">Edit Database</v-tab>
+        </v-tabs>
+      </template>
     </v-app-bar>
 
     <v-main>
-      <v-simple-table>
-        <thead>
-          <tr>
-            <th>
-              Title
-            </th>
-            <th>
-              Artist
-            </th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr v-for="entry in info" :key="entry.URL">
-            <td>{{entry.Title}}</td>
-            <td>{{entry.Artist}}</td>
-          </tr>
-        </tbody>
-      </v-simple-table>
-      <HelloWorld/>
+      <HelloWorld v-if="tab == 0"/>
+      <CreatePlaylist v-if="tab == 1" />
     </v-main>
   </v-app>
 </template>
 
 <script>
-import axios from 'axios';
-
 import HelloWorld from './components/HelloWorld';
+import CreatePlaylist from './components/CreatePlaylist';
 
 export default {
   name: 'App',
 
   components: {
     HelloWorld,
+    CreatePlaylist,
   },
 
   data: () => ({
-    info: null
-  }),
-
-  mounted() {
-    axios
-    .get('http://127.0.0.1:8000/all')
-    .then(response => (this.info = response.data))
-  }
+    tab: 0,
+  })
 };
 </script>
