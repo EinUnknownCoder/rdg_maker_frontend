@@ -90,7 +90,7 @@ export default {
             if (this.selectedDancerQuery !== "") {
                 axios
                     .get('http://127.0.0.1:8000/createPlaylist/' + this.selectedDancerQuery)
-                    .then((alert("Done")))
+                    .then(response => (alert(response)))
             } else {
                 alert("Please select 1 or more dancers.")
             }
