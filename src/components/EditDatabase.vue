@@ -1,5 +1,8 @@
 <template>
-  <h2>Edit Database</h2>
+  <v-app>
+    <h2>Edit Database</h2>
+    <p>WIP</p>
+  </v-app>
 </template>
 
 <script>

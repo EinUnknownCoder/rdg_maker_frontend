@@ -25,6 +25,7 @@
     <v-main>
       <HelloWorld v-if="tab == 0"/>
       <CreatePlaylist v-if="tab == 1" />
+      <EditDatabase v-if="tab == 2" />
     </v-main>
   </v-app>
 </template>
@@ -32,6 +33,7 @@
 <script>
 import HelloWorld from './components/HelloWorld';
 import CreatePlaylist from './components/CreatePlaylist';
+import EditDatabase from './components/EditDatabase';
 
 export default {
   name: 'App',
@@ -39,6 +41,7 @@ export default {
   components: {
     HelloWorld,
     CreatePlaylist,
+    EditDatabase
   },
 
   data: () => ({

@@ -3,13 +3,13 @@
         <v-row>
             <v-col cols="12" md="3">
                 <v-data-table v-model="selectedDancer" :headers="headers" :items="dancer" item-key="ID" show-select
-                    :items-per-page="itemsPerPage" class="pa-2" @click="loadList">
+                    :items-per-page="itemsPerPage" class="pa-2">
                 </v-data-table>
             </v-col>
             <v-col cols="12" md="9">
                 <v-row class="pa-2">
                     <v-col cols="12" md="6">
-                        <v-btn @click="loadList" block color="secondary">Show Preview</v-btn>
+                        <v-btn @click="showPreview" block color="secondary">Show Preview</v-btn>
                     </v-col>
                     <v-col cols="12" md="6">
                         <v-btn @click="createPlaylist" block color="primary">Create Playlist</v-btn>
@@ -76,7 +76,7 @@ export default {
     }),
 
     methods: {
-        loadList() {
+        showPreview() {
             if (this.selectedDancerQuery !== "") {
                 this.songs = []
                 axios
@@ -90,7 +90,7 @@ export default {
             if (this.selectedDancerQuery !== "") {
                 axios
                     .get('http://127.0.0.1:8000/createPlaylist/' + this.selectedDancerQuery)
-                    .then(response => (alert(response)))
+                    .then(response => (alert(response.data["Data"])))
             } else {
                 alert("Please select 1 or more dancers.")
             }
