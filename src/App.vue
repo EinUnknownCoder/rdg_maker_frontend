@@ -14,7 +14,7 @@
       <h3>By EinUnknownCoder</h3>
 
       <template v-slot:extension>
-        <v-tabs align-with-title>
+        <v-tabs align-with-title grow>
           <v-tab @click="tab = 0">Hello World</v-tab>
           <v-tab @click="tab = 1">Create Playlist</v-tab>
           <v-tab @click="tab = 2">Edit Database</v-tab>
