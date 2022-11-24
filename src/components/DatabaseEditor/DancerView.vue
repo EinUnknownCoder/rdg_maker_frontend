@@ -4,7 +4,36 @@
       <v-card-title>
         <v-text-field v-model="search" append-icon="mdi-magnify" label="Search" single-line hide-details></v-text-field>
         <v-spacer></v-spacer>
-        <v-btn dark @click="newItem">New Entry</v-btn>
+        <v-dialog v-model="dialog" max-width="500px">
+          <template v-slot:activator="{ on, attrs }">
+            <v-btn dark v-bind="attrs" v-on="on">New Entry</v-btn>
+          </template>
+          <v-card>
+            <v-card-title>
+              <span class="text-h5">New Dancer</span>
+            </v-card-title>
+
+            <v-card-text>
+              <v-container>
+                <v-row>
+                  <v-col cols="12">
+                    <v-text-field v-model="editedItem.name" label="Name"></v-text-field>
+                  </v-col>
+                </v-row>
+              </v-container>
+            </v-card-text>
+
+            <v-card-actions>
+              <v-spacer></v-spacer>
+              <v-btn color="blue darken-1" text @click="close">
+                Cancel
+              </v-btn>
+              <v-btn color="blue darken-1" text @click="save">
+                Save
+              </v-btn>
+            </v-card-actions>
+          </v-card>
+        </v-dialog>
       </v-card-title>
       <v-data-table :headers="headers" :items="dancers" item-key="ID" :items-per-page="-1" :search="search">
         <template v-slot:[`item.actions`]="{ item }">
@@ -29,6 +58,13 @@ export default {
   data: () => ({
     dancers: [{ "ID": 0, "Name": "Long" },],
     search: '',
+    dialog: false,
+    editedItem: {
+        name: '',
+      },
+      defaultItem: {
+        name: '',
+      },
   }),
 
   computed: {
