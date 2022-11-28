@@ -70,7 +70,7 @@
 import axios from 'axios';
 
 export default {
-    name: 'CreatePlaylist',
+    name: 'CreateVAOPlaylist',
 
     data: () => ({
         itemsPerPage: -1,

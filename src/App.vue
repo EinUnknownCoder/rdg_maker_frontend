@@ -15,32 +15,32 @@
 
       <template v-slot:extension>
         <v-tabs align-with-title grow>
-          <v-tab @click="tab = 0">Hello World</v-tab>
-          <v-tab @click="tab = 1">Create Playlist</v-tab>
-          <v-tab @click="tab = 2">Edit Database</v-tab>
+          <v-tab @click="tab = 0">Create Playlist from Excel</v-tab>
+          <v-tab @click="tab = 1">Create VAO Playlist</v-tab>
+          <v-tab @click="tab = 2">Edit VAO Database</v-tab>
         </v-tabs>
       </template>
     </v-app-bar>
 
     <v-main>
-      <HelloWorld v-if="tab == 0"/>
-      <CreatePlaylist v-if="tab == 1" />
+      <CreateExcelPlaylist v-if="tab == 0"/>
+      <CreateVAOPlaylist v-if="tab == 1" />
       <EditDatabase v-if="tab == 2" />
     </v-main>
   </v-app>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld';
-import CreatePlaylist from './components/CreatePlaylist';
+import CreateExcelPlaylist from './components/CreateExcelPlaylist';
+import CreateVAOPlaylist from './components/CreateVAOPlaylist';
 import EditDatabase from './components/EditDatabase';
 
 export default {
   name: 'App',
 
   components: {
-    HelloWorld,
-    CreatePlaylist,
+    CreateExcelPlaylist,
+    CreateVAOPlaylist,
     EditDatabase
   },
 
