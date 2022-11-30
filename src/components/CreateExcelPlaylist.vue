@@ -55,6 +55,7 @@
               <th>Artist</th>
               <th>Title</th>
               <th>Description</th>
+              <th>Dancer</th>
               <th>Start</th>
               <th>End</th>
             </tr>
@@ -65,6 +66,7 @@
               <td> {{ song.Artist }} </td>
               <td> {{ song.Title }} </td>
               <td> {{ song.Description }} </td>
+              <td> {{ song.Dancer }} </td>
               <td> {{ song.Start }}</td>
               <td> {{ song.End }} </td>
             </tr>
