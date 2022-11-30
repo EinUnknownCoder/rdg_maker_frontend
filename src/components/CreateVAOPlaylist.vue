@@ -101,7 +101,7 @@ export default {
             if (this.selectedDancerQuery !== "") {
                 this.timestamps = "Loading...";
                 axios
-                    .get('http://127.0.0.1:8000/createPlaylist/' + this.selectedDancerQuery)
+                    .get('http://127.0.0.1:8000/createVAOPlaylist/' + this.selectedDancerQuery)
                     .then(response => (this.timestamps = response.data["Data"]));
             } else {
                 alert("Please select 1 or more dancers.")
