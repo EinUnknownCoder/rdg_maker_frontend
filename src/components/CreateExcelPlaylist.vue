@@ -5,9 +5,9 @@
         <v-btn dark block @click="showExcel">Find/Show Excel</v-btn>
       </v-col>
       <v-col cols="12" md="6">
-        <v-btn color="primary" block @click="createPlaylist">Create Playlist</v-btn>
+        <v-btn color="primary" block @click="createPlaylist" :loading="loading">Create Playlist</v-btn>
       </v-col>
-      <v-col cols="12" v-if="timestamps != 'Empty'">
+      <v-col cols="12">
         <v-textarea v-model="timestamps" readonly>
           <template v-slot:label>
             <div>
@@ -92,12 +92,19 @@ export default {
     postTime: 2,
     fadeInTime: 2,
     fadeOutTime: 2,
-    timestamps: "Empty"
+    timestamps: "Ready to create Playlist!"
   }),
 
   computed: {
     fileProperties() {
       return Object.getOwnPropertyNames(this.file[0]['values'])
+    },
+    loading() {
+      if (this.timestamps == "Loading...") {
+        return true
+      } else {
+        return false
+      }
     }
   },
 
@@ -109,6 +116,7 @@ export default {
         .then(response => (this.songs = response.data))
     },
     createPlaylist() {
+      this.timestamps = "Loading..."
       axios.post('http://127.0.0.1:8000/createExcelPlaylist', {
         countdown: this.includeCountdown,
         intro: this.includeIntro,
