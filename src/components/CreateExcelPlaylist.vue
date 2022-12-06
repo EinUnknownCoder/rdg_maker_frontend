@@ -7,7 +7,7 @@
       <v-col cols="12" md="6">
         <v-btn color="primary" block @click="createPlaylist" :loading="loading">Create Playlist</v-btn>
       </v-col>
-      <v-col cols="12">
+      <v-col cols="12" v-if="showTimestamps">
         <v-textarea v-model="timestamps" readonly>
           <template v-slot:label>
             <div>
@@ -21,26 +21,35 @@
       <v-col cols="12">
         <v-form>
           <v-row>
-            <v-col cols="12" md="4">
+            <v-col cols="12" md="3">
               <v-switch v-model="includeCountdown" label="Countdown"></v-switch>
             </v-col>
-            <v-col cols="12" md="4">
+            <v-col cols="12" md="3">
+              <v-switch :disabled="!includeCountdown" v-model="countdownCrossfade" label="Countdown Crossfade"></v-switch>
+            </v-col>
+            <v-col cols="12" md="3">
               <v-switch v-model="includeIntro" label="Intro (MONSTA X - LOVE)"></v-switch>
             </v-col>
-            <v-col cols="12" md="4">
+            <v-col cols="12" md="3">
               <v-switch v-model="includeOutro" label="Outro (BTS - RUN)"></v-switch>
             </v-col>
             <v-col cols="12" md="3">
-              <v-text-field v-model="preTime" label="Time before Dance Part" type="number"></v-text-field>
+              <v-slider v-model="preTime" hint="Time before Dance Part" thumb-label="always" min="0" max="10" persistent-hint></v-slider>
             </v-col>
             <v-col cols="12" md="3">
-              <v-text-field v-model="postTime" label="Time after Dance Part" type="number"></v-text-field>
+              <v-slider v-model="postTime" hint="Time after Dance Part" thumb-label="always" min="0" max="10" persistent-hint></v-slider>
             </v-col>
             <v-col cols="12" md="3">
-              <v-text-field v-model="fadeInTime" label="Fade In Time" type="number"></v-text-field>
+              <v-slider v-model="fadeInTime" hint="Fade In Time" thumb-label="always" min="0" max="10" persistent-hint></v-slider>
             </v-col>
             <v-col cols="12" md="3">
-              <v-text-field v-model="fadeOutTime" label="Fade Out Time" type="number"></v-text-field>
+              <v-slider v-model="fadeOutTime" hint="Fade Out Time" thumb-label="always" min="0" max="10" persistent-hint></v-slider>
+            </v-col>
+            <v-col cols="12" md="6">
+              <v-select label="Countdown Voice" :items="countdownVoices" v-model="countdownVoice"></v-select>
+            </v-col>
+            <v-col cols="12" md="6">
+              <v-select label="Cover Image" :items="coverImages" v-model="coverImage"></v-select>
             </v-col>
           </v-row>
         </v-form>
@@ -88,11 +97,16 @@ export default {
     includeIntro: false,
     includeOutro: false,
     includeCountdown: true,
+    countdownCrossfade: true,
     preTime: 10,
     postTime: 2,
     fadeInTime: 2,
     fadeOutTime: 2,
-    timestamps: "Ready to create Playlist!"
+    timestamps: "Ready to create Playlist!",
+    countdownVoices: ["Calm", "Neutral"],
+    countdownVoice: "Neutral",
+    coverImages: ["VAO", "KPopperStuttgart"],
+    coverImage: "VAO"
   }),
 
   computed: {
@@ -104,6 +118,13 @@ export default {
         return true
       } else {
         return false
+      }
+    },
+    showTimestamps() {
+      if (this.timestamps == "Loading..." || this.timestamps == "Ready to create Playlist!") {
+        return false
+      } else {
+        return true
       }
     }
   },
@@ -119,12 +140,15 @@ export default {
       this.timestamps = "Loading..."
       axios.post('http://127.0.0.1:8000/createExcelPlaylist', {
         countdown: this.includeCountdown,
+        countdownCrossfade: this.countdownCrossfade,
         intro: this.includeIntro,
         outro: this.includeOutro,
         preTime: this.preTime,
         postTime: this.postTime,
         fadeInTime: this.fadeInTime,
-        fadeOutTime: this.fadeOutTime
+        fadeOutTime: this.fadeOutTime,
+        countdownVoice: this.countdownVoice,
+        coverImage: this.coverImage
       }).then(response => (this.timestamps = response.data))
     }
   }
