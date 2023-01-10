@@ -105,7 +105,7 @@ export default {
     timestamps: "Ready to create Playlist!",
     countdownVoices: ["Calm", "Neutral"],
     countdownVoice: "Neutral",
-    coverImages: ["VAO", "KPopperStuttgart"],
+    coverImages: ["VAO", "KPopperStuttgart", "RDGStuttgart"],
     coverImage: "VAO"
   }),
 
