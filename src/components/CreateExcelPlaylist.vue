@@ -21,6 +21,17 @@
       <v-col cols="12">
         <v-form>
           <v-row>
+
+            <v-col cols="12" md="4">
+              <v-btn dark color="#8E24AA" block @click="presetVAO">VAO Preset</v-btn>
+            </v-col>
+            <v-col cols="12" md="4">
+              <v-btn block @click="presetRDG">RDG Stuttgart Preset</v-btn>
+            </v-col>
+            <v-col cols="12" md="4">
+              <v-btn block @click="showExcel" disabled>No more Presets</v-btn>
+            </v-col>
+
             <v-col cols="12" md="3">
               <v-switch v-model="includeCountdown" label="Countdown"></v-switch>
             </v-col>
@@ -33,6 +44,7 @@
             <v-col cols="12" md="3">
               <v-switch v-model="includeOutro" label="Outro (BTS - RUN)"></v-switch>
             </v-col>
+
             <v-col cols="12" md="3">
               <v-slider v-model="preTime" hint="Time before Dance Part" thumb-label="always" min="0" max="10" persistent-hint></v-slider>
             </v-col>
@@ -45,6 +57,7 @@
             <v-col cols="12" md="3">
               <v-slider v-model="fadeOutTime" hint="Fade Out Time" thumb-label="always" min="0" max="10" persistent-hint></v-slider>
             </v-col>
+
             <v-col cols="12" md="6">
               <v-select label="Countdown Voice" :items="countdownVoices" v-model="countdownVoice"></v-select>
             </v-col>
@@ -150,6 +163,30 @@ export default {
         countdownVoice: this.countdownVoice,
         coverImage: this.coverImage
       }).then(response => (this.timestamps = response.data))
+    },
+    presetVAO() {
+      this.includeCountdown = true
+      this.countdownCrossfade = true
+      this.includeIntro = true
+      this.includeOutro = true
+      this.preTime = 10
+      this.postTime = 2
+      this.fadeInTime = 2
+      this.fadeOutTime = 2
+      this.countdownVoice = "Calm"
+      this.coverImage = "VAO"
+    },
+    presetRDG() {
+      this.includeCountdown = true
+      this.countdownCrossfade = false
+      this.includeIntro = false
+      this.includeOutro = false
+      this.preTime = 0
+      this.postTime = 2
+      this.fadeInTime = 2
+      this.fadeOutTime = 2
+      this.countdownVoice = "Calm"
+      this.coverImage = "RDGStuttgart"
     }
   }
 }
