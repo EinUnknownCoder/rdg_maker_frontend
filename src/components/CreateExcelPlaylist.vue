@@ -165,8 +165,8 @@ export default {
       }).then(response => (this.timestamps = response.data))
     },
     presetVAO() {
-      this.includeCountdown = true
-      this.countdownCrossfade = true
+      this.includeCountdown = false
+      this.countdownCrossfade = false
       this.includeIntro = true
       this.includeOutro = true
       this.preTime = 10
