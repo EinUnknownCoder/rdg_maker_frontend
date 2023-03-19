@@ -116,7 +116,7 @@ export default {
     fadeInTime: 2,
     fadeOutTime: 2,
     timestamps: "Ready to create Playlist!",
-    countdownVoices: ["Calm", "Neutral"],
+    countdownVoices: ["Calm", "Neutral", "Calm (3 Seconds)"],
     countdownVoice: "Neutral",
     coverImages: ["VAO", "KPopperStuttgart", "RDGStuttgart"],
     coverImage: "VAO"
@@ -181,11 +181,11 @@ export default {
       this.countdownCrossfade = false
       this.includeIntro = false
       this.includeOutro = false
-      this.preTime = 0
-      this.postTime = 2
+      this.preTime = 1
+      this.postTime = 0
       this.fadeInTime = 2
       this.fadeOutTime = 2
-      this.countdownVoice = "Calm"
+      this.countdownVoice = "Calm (3 Seconds)"
       this.coverImage = "RDGStuttgart"
     }
   }
