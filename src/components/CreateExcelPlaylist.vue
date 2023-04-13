@@ -26,10 +26,10 @@
               <v-btn dark color="#8E24AA" block @click="presetVAO">VAO Preset</v-btn>
             </v-col>
             <v-col cols="12" md="4">
-              <v-btn block @click="presetRDG">RDG Stuttgart Preset</v-btn>
+              <v-btn block @click="presetRDGStuttgart">RDG Stuttgart Preset</v-btn>
             </v-col>
             <v-col cols="12" md="4">
-              <v-btn block @click="showExcel" disabled>No more Presets</v-btn>
+              <v-btn block @click="presetRDGKarlsruhe">RDG Karlsruhe Preset</v-btn>
             </v-col>
 
             <v-col cols="12" md="3">
@@ -118,7 +118,7 @@ export default {
     timestamps: "Ready to create Playlist!",
     countdownVoices: ["Calm", "Neutral", "Calm (3 Seconds)"],
     countdownVoice: "Neutral",
-    coverImages: ["VAO", "KPopperStuttgart", "RDGStuttgart"],
+    coverImages: ["VAO", "KPopperStuttgart", "RDGStuttgart", "RDGKarlsruhe"],
     coverImage: "VAO"
   }),
 
@@ -176,7 +176,7 @@ export default {
       this.countdownVoice = "Calm"
       this.coverImage = "VAO"
     },
-    presetRDG() {
+    presetRDGStuttgart() {
       this.includeCountdown = true
       this.countdownCrossfade = false
       this.includeIntro = false
@@ -187,6 +187,18 @@ export default {
       this.fadeOutTime = 2
       this.countdownVoice = "Calm (3 Seconds)"
       this.coverImage = "RDGStuttgart"
+    },
+    presetRDGKarlsruhe() {
+      this.includeCountdown = true
+      this.countdownCrossfade = false
+      this.includeIntro = false
+      this.includeOutro = false
+      this.preTime = 0
+      this.postTime = 5
+      this.fadeInTime = 2
+      this.fadeOutTime = 2
+      this.countdownVoice = "Calm"
+      this.coverImage = "RDGKarlsruhe"
     }
   }
 }
