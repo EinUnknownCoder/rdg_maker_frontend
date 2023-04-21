@@ -1,11 +1,14 @@
 <template>
   <v-container>
     <v-row>
-      <v-col cols="12" md="6">
+      <v-col cols="12" md="5">
         <v-btn dark block @click="showExcel">Find/Show Excel</v-btn>
       </v-col>
-      <v-col cols="12" md="6">
+      <v-col cols="12" md="5">
         <v-btn color="primary" block @click="createPlaylist" :loading="loading">Create Playlist</v-btn>
+      </v-col>
+      <v-col cols="12" md="2">
+        <v-btn block color="secondary" @click="resetCreateButton">Reset</v-btn>
       </v-col>
       <v-col cols="12" v-if="showTimestamps">
         <v-textarea v-model="timestamps" readonly>
@@ -164,6 +167,9 @@ export default {
         coverImage: this.coverImage
       }).then(response => (this.timestamps = response.data))
     },
+    resetCreateButton() {
+      this.timestamps = "Ready to create Playlist!"
+    },
     presetVAO() {
       this.includeCountdown = false
       this.countdownCrossfade = false
@@ -182,7 +188,7 @@ export default {
       this.includeIntro = false
       this.includeOutro = false
       this.preTime = 1
-      this.postTime = 0
+      this.postTime = 1
       this.fadeInTime = 2
       this.fadeOutTime = 2
       this.countdownVoice = "Calm (3 Seconds)"
