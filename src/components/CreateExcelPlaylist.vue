@@ -200,7 +200,7 @@ export default {
       this.includeIntro = false
       this.includeOutro = false
       this.preTime = 0
-      this.postTime = 5
+      this.postTime = 2
       this.fadeInTime = 2
       this.fadeOutTime = 2
       this.countdownVoice = "Calm"
