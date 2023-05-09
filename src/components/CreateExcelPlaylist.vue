@@ -203,7 +203,7 @@ export default {
       this.postTime = 2
       this.fadeInTime = 2
       this.fadeOutTime = 2
-      this.countdownVoice = "Calm"
+      this.countdownVoice = "Calm (3 Seconds)"
       this.coverImage = "RDGKarlsruhe"
     }
   }
