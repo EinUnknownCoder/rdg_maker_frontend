@@ -61,10 +61,13 @@
               <v-slider v-model="fadeOutTime" hint="Fade Out Time" thumb-label="always" min="0" max="10" persistent-hint></v-slider>
             </v-col>
 
-            <v-col cols="12" md="6">
+            <v-col cols="12" md="4">
+              <v-slider v-model="playlistAmount" hint="Amount of Playlists" thumb-label="always" :thumb-size="20" min="1" max="5" persistent-hint></v-slider>
+            </v-col>
+            <v-col cols="12" md="4">
               <v-select label="Countdown Voice" :items="countdownVoices" v-model="countdownVoice"></v-select>
             </v-col>
-            <v-col cols="12" md="6">
+            <v-col cols="12" md="4">
               <v-select label="Cover Image" :items="coverImages" v-model="coverImage"></v-select>
             </v-col>
           </v-row>
@@ -122,7 +125,8 @@ export default {
     countdownVoices: ["Calm", "Neutral", "Calm (3 Seconds)"],
     countdownVoice: "Neutral",
     coverImages: ["VAO", "KPopperStuttgart", "RDGStuttgart", "RDGKarlsruhe"],
-    coverImage: "VAO"
+    coverImage: "VAO",
+    playlistAmount: 1
   }),
 
   computed: {
@@ -164,7 +168,8 @@ export default {
         fadeInTime: this.fadeInTime,
         fadeOutTime: this.fadeOutTime,
         countdownVoice: this.countdownVoice,
-        coverImage: this.coverImage
+        coverImage: this.coverImage,
+        playlistAmount: this.playlistAmount
       }).then(response => (this.timestamps = response.data))
     },
     resetCreateButton() {
