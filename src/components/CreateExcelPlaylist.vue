@@ -29,10 +29,10 @@
               <v-btn dark color="#8E24AA" block @click="presetVAO">VAO Preset</v-btn>
             </v-col>
             <v-col cols="12" md="4">
-              <v-btn block @click="presetRDGStuttgart">RDG Stuttgart Preset</v-btn>
+              <v-btn color="light-blue" block @click="presetRDGStuttgart">RDG Stuttgart Preset</v-btn>
             </v-col>
             <v-col cols="12" md="4">
-              <v-btn block @click="presetRDGKarlsruhe">RDG Karlsruhe Preset</v-btn>
+              <v-btn dark color="dark-blue" block @click="presetRDGKarlsruhe">RDG Karlsruhe Preset</v-btn>
             </v-col>
 
             <v-col cols="12" md="3">
@@ -122,8 +122,8 @@ export default {
     fadeInTime: 2,
     fadeOutTime: 2,
     timestamps: "Ready to create Playlist!",
-    countdownVoices: ["Calm", "Neutral", "Calm (3 Seconds)"],
-    countdownVoice: "Neutral",
+    countdownVoices: ["Salli"],
+    countdownVoice: "Salli",
     coverImages: ["VAO", "KPopperStuttgart", "RDGStuttgart", "RDGKarlsruhe"],
     coverImage: "VAO",
     playlistAmount: 1
@@ -177,38 +177,38 @@ export default {
     },
     presetVAO() {
       this.includeCountdown = false
-      this.countdownCrossfade = false
+      this.countdownCrossfade = true
       this.includeIntro = true
       this.includeOutro = true
       this.preTime = 10
       this.postTime = 2
       this.fadeInTime = 2
       this.fadeOutTime = 2
-      this.countdownVoice = "Calm"
+      this.countdownVoice = "Salli"
       this.coverImage = "VAO"
     },
     presetRDGStuttgart() {
       this.includeCountdown = true
-      this.countdownCrossfade = false
+      this.countdownCrossfade = true
       this.includeIntro = false
       this.includeOutro = false
       this.preTime = 1
       this.postTime = 1
       this.fadeInTime = 2
       this.fadeOutTime = 2
-      this.countdownVoice = "Calm (3 Seconds)"
+      this.countdownVoice = "Salli"
       this.coverImage = "RDGStuttgart"
     },
     presetRDGKarlsruhe() {
       this.includeCountdown = true
-      this.countdownCrossfade = false
+      this.countdownCrossfade = true
       this.includeIntro = false
       this.includeOutro = false
       this.preTime = 0
       this.postTime = 2
       this.fadeInTime = 2
       this.fadeOutTime = 2
-      this.countdownVoice = "Calm (3 Seconds)"
+      this.countdownVoice = "Salli"
       this.coverImage = "RDGKarlsruhe"
     }
   }
