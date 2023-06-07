@@ -247,13 +247,13 @@ export default {
       this.includeIntro = false
       this.includeOutro = false
       this.preTime = 0
-      this.postTime = 2
+      this.postTime = 1
       this.fadeInTime = 2
       this.fadeOutTime = 2
       this.countdownVoice = "Salli"
       this.countdownLength = 5
       this.coverImage = "RPDMunich"
-      this.randomizePlaylist = true
+      this.randomizePlaylist = false
     }
   }
 }
