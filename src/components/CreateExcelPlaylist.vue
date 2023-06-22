@@ -25,17 +25,23 @@
         <v-form>
           <v-row>
 
-            <v-col cols="12" md="3">
-              <v-btn dark color="#8E24AA" block @click="presetVAO">VAO Preset</v-btn>
+            <v-col cols="12" md="2">
+              <v-btn dark color="#8E24AA" block @click="presetVAO">VAO</v-btn>
             </v-col>
-            <v-col cols="12" md="3">
-              <v-btn color="light-blue" block @click="presetRDGStuttgart">RDG Stuttgart Preset</v-btn>
+            <v-col cols="12" md="2">
+              <v-btn color="light-blue" block @click="presetRDGStuttgart">Stuttgart</v-btn>
             </v-col>
-            <v-col cols="12" md="3">
-              <v-btn dark color="dark-blue" block @click="presetRDGKarlsruhe">RDG Karlsruhe Preset</v-btn>
+            <v-col cols="12" md="2">
+              <v-btn dark color="#0D47A1" block @click="presetRDGKarlsruhe">Karlsruhe</v-btn>
             </v-col>
-            <v-col cols="12" md="3">
-              <v-btn dark color="dark-blue" block @click="presetRPDMunich">RPD Munich Preset</v-btn>
+            <v-col cols="12" md="2">
+              <v-btn dark color="dark-blue" block @click="presetRPDMunich">Munich</v-btn>
+            </v-col>
+            <v-col cols="12" md="2">
+              <v-btn dark color="#FB8C00" block @click="presetARDGGoeppingen">Göppingen</v-btn>
+            </v-col>
+            <v-col cols="12" md="2">
+              <v-btn color="red" disabled block>TBD</v-btn>
             </v-col>
 
             <v-col cols="12" md="3">
@@ -81,7 +87,7 @@
               <v-switch v-model="randomizePlaylist" label="Randomize Playlist"></v-switch>
             </v-col>
             <v-col cols="12" md="3">
-              <v-switch label="WIP" disabled></v-switch>
+              <v-switch label="Backend Conformation" v-model="backendConformation"></v-switch>
             </v-col>
             <v-col cols="12" md="3">
               <v-switch label="WIP" disabled></v-switch>
@@ -145,10 +151,11 @@ export default {
     countdownVoice: "Salli",
     countdownLengths: [3, 5],
     countdownLength: 3,
-    coverImages: ["VAO", "KPopperStuttgart", "RDGStuttgart", "RDGKarlsruhe", "RPDMunich"],
+    coverImages: ["VAO", "KPopperStuttgart", "RDGStuttgart", "RDGKarlsruhe", "RPDMunich", "ARDGGoeppingen"],
     coverImage: "VAO",
     playlistAmount: 1,
-    randomizePlaylist: true
+    randomizePlaylist: true,
+    backendConformation: true
   }),
 
   computed: {
@@ -193,7 +200,8 @@ export default {
         countdownLength: this.countdownLength,
         coverImage: this.coverImage,
         playlistAmount: this.playlistAmount,
-        randomizePlaylist: this.randomizePlaylist
+        randomizePlaylist: this.randomizePlaylist,
+        backendConformation: this.backendConformation
       }).then(response => (this.timestamps = response.data))
     },
     resetCreateButton() {
@@ -212,6 +220,7 @@ export default {
       this.countdownLength = 3
       this.coverImage = "VAO"
       this.randomizePlaylist = true
+      this.backendConformation = false
     },
     presetRDGStuttgart() {
       this.includeCountdown = true
@@ -226,6 +235,7 @@ export default {
       this.countdownLength = 3
       this.coverImage = "RDGStuttgart"
       this.randomizePlaylist = true
+      this.backendConformation = true
     },
     presetRDGKarlsruhe() {
       this.includeCountdown = true
@@ -240,6 +250,7 @@ export default {
       this.countdownLength = 3
       this.coverImage = "RDGKarlsruhe"
       this.randomizePlaylist = true
+      this.backendConformation = true
     },
     presetRPDMunich() {
       this.includeCountdown = true
@@ -254,6 +265,22 @@ export default {
       this.countdownLength = 5
       this.coverImage = "RPDMunich"
       this.randomizePlaylist = false
+      this.backendConformation = false
+    },
+    presetARDGGoeppingen() {
+      this.includeCountdown = true
+      this.countdownCrossfade = true
+      this.includeIntro = false
+      this.includeOutro = false
+      this.preTime = 0
+      this.postTime = 0
+      this.fadeInTime = 2
+      this.fadeOutTime = 2
+      this.countdownVoice = "Salli"
+      this.countdownLength = 3
+      this.coverImage = "ARDGGoeppingen"
+      this.randomizePlaylist = true
+      this.backendConformation = true
     }
   }
 }
