@@ -90,7 +90,7 @@
               <v-switch label="Backend Conformation" v-model="backendConformation"></v-switch>
             </v-col>
             <v-col cols="12" md="3">
-              <v-switch label="WIP" disabled></v-switch>
+              <v-switch label="10 Second Silence at the end" v-model="tenSecondSilenceAtEnd"></v-switch>
             </v-col>
             <v-col cols="12" md="3">
               <v-switch label="WIP" disabled></v-switch>
@@ -151,11 +151,12 @@ export default {
     countdownVoice: "Salli",
     countdownLengths: [3, 5],
     countdownLength: 3,
-    coverImages: ["VAO", "KPopperStuttgart", "RDGStuttgart", "RDGKarlsruhe", "RPDMunich", "ARDGGoeppingen"],
-    coverImage: "VAO",
+    coverImages: ["RDGMaker", "VAO", "KPopperStuttgart", "RDGStuttgart", "RDGKarlsruhe", "RPDMunich", "ARDGGoeppingen"],
+    coverImage: "RDGMaker",
     playlistAmount: 1,
     randomizePlaylist: true,
-    backendConformation: true
+    backendConformation: true,
+    tenSecondSilenceAtEnd: true
   }),
 
   computed: {
@@ -201,7 +202,8 @@ export default {
         coverImage: this.coverImage,
         playlistAmount: this.playlistAmount,
         randomizePlaylist: this.randomizePlaylist,
-        backendConformation: this.backendConformation
+        backendConformation: this.backendConformation,
+        tenSecondSilenceAtEnd: this.tenSecondSilenceAtEnd
       }).then(response => (this.timestamps = response.data))
     },
     resetCreateButton() {
