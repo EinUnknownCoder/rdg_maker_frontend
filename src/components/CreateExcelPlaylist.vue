@@ -264,7 +264,7 @@ export default {
       this.fadeInTime = 2
       this.fadeOutTime = 2
       this.countdownVoice = "Salli"
-      this.countdownLength = 5
+      this.countdownLength = 3
       this.coverImage = "RPDMunich"
       this.randomizePlaylist = false
       this.backendConformation = false
@@ -274,8 +274,8 @@ export default {
       this.countdownCrossfade = true
       this.includeIntro = false
       this.includeOutro = false
-      this.preTime = 0
-      this.postTime = 0
+      this.preTime = 5
+      this.postTime = 3
       this.fadeInTime = 2
       this.fadeOutTime = 2
       this.countdownVoice = "Salli"
