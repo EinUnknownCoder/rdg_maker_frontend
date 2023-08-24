@@ -229,7 +229,7 @@ export default {
       this.countdownCrossfade = true
       this.includeIntro = false
       this.includeOutro = false
-      this.preTime = 1
+      this.preTime = 2
       this.postTime = 1
       this.fadeInTime = 2
       this.fadeOutTime = 2
