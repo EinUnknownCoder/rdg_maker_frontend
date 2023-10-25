@@ -164,7 +164,7 @@ export default {
     countdownVoice: "Salli",
     countdownLengths: [3, 5],
     countdownLength: 3,
-    coverImages: ["RDGMaker", "VAO", "KPopperStuttgart", "RDGStuttgart", "RDGKarlsruhe", "RPDMunich", "ARDGGoeppingen"],
+    coverImages: ["RDGMaker", "VAO", "KPopperStuttgart", "RDGStuttgart", "RDGKarlsruhe", "RPDMunich", "ARDGGoeppingen", "KBlast"],
     coverImage: "RDGMaker",
     playlistAmount: 1,
     randomizePlaylist: true,
