@@ -93,7 +93,20 @@
               <v-switch label="10 Second Silence at the end" v-model="tenSecondSilenceAtEnd"></v-switch>
             </v-col>
             <v-col cols="12" md="3">
-              <v-switch label="WIP" disabled></v-switch>
+              <v-text-field label="File Name" v-model="fileName"></v-text-field>
+            </v-col>
+
+            <v-col cols="12" md="3">
+              <v-switch label="Check YT URLs" v-model="checkYTURL"></v-switch>
+            </v-col>
+            <v-col cols="12" md="3">
+              <v-switch disabled label="WIP"></v-switch>
+            </v-col>
+            <v-col cols="12" md="3">
+              <v-switch disabled label="WIP"></v-switch>
+            </v-col>
+            <v-col cols="12" md="3">
+              <v-switch disabled label="WIP"></v-switch>
             </v-col>
           </v-row>
         </v-form>
@@ -156,7 +169,9 @@ export default {
     playlistAmount: 1,
     randomizePlaylist: true,
     backendConformation: true,
-    tenSecondSilenceAtEnd: true
+    tenSecondSilenceAtEnd: true,
+    fileName: "",
+    checkYTURL: true
   }),
 
   computed: {
@@ -203,7 +218,9 @@ export default {
         playlistAmount: this.playlistAmount,
         randomizePlaylist: this.randomizePlaylist,
         backendConformation: this.backendConformation,
-        tenSecondSilenceAtEnd: this.tenSecondSilenceAtEnd
+        tenSecondSilenceAtEnd: this.tenSecondSilenceAtEnd,
+        fileName: this.fileName,
+        checkYTURL: this.checkYTURL
       }).then(response => (this.timestamps = response.data))
     },
     resetCreateButton() {
@@ -238,6 +255,8 @@ export default {
       this.coverImage = "RDGStuttgart"
       this.randomizePlaylist = true
       this.backendConformation = true
+      this.fileName= "9999-12-31_RDG_Stuttgart_V0"
+      this.playlistAmount = 4
     },
     presetRDGKarlsruhe() {
       this.includeCountdown = true
