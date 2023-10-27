@@ -128,7 +128,7 @@
           </thead>
           <tbody>
             <tr v-for="song in songs" :key="song.URL">
-              <td> <a :href="song.URL + '?t=' + song.Start" target="_blank">{{ song.URL }}</a></td>
+              <td> <a :href="song.URL + '&t=' + song.Start" target="_blank">{{ song.URL }}</a></td>
               <td> {{ song.Artist }} </td>
               <td> {{ song.Title }} </td>
               <td> {{ song.Description }} </td>
