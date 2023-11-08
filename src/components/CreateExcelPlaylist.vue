@@ -100,7 +100,7 @@
               <v-switch label="Check YT URLs" v-model="checkYTURL"></v-switch>
             </v-col>
             <v-col cols="12" md="3">
-              <v-switch disabled label="WIP"></v-switch>
+              <v-switch label="Remove Dancer Text in Timestamp" v-model="removeDancer"></v-switch>
             </v-col>
             <v-col cols="12" md="3">
               <v-switch disabled label="WIP"></v-switch>
@@ -171,7 +171,8 @@ export default {
     backendConformation: true,
     tenSecondSilenceAtEnd: true,
     fileName: "",
-    checkYTURL: true
+    checkYTURL: true,
+    removeDancer: false
   }),
 
   computed: {
@@ -220,7 +221,8 @@ export default {
         backendConformation: this.backendConformation,
         tenSecondSilenceAtEnd: this.tenSecondSilenceAtEnd,
         fileName: this.fileName,
-        checkYTURL: this.checkYTURL
+        checkYTURL: this.checkYTURL,
+        removeDancer: this.removeDancer
       }).then(response => (this.timestamps = response.data))
     },
     resetCreateButton() {
@@ -263,7 +265,7 @@ export default {
       this.countdownCrossfade = true
       this.includeIntro = false
       this.includeOutro = false
-      this.preTime = 0
+      this.preTime = 3
       this.postTime = 2
       this.fadeInTime = 2
       this.fadeOutTime = 2
@@ -272,6 +274,9 @@ export default {
       this.coverImage = "RDGKarlsruhe"
       this.randomizePlaylist = true
       this.backendConformation = true
+      this.playlistAmount = 2
+      this.fileName = "9999-12-31_RDG_Karlsruhe_V0"
+      this.removeDancer = true
     },
     presetRPDMunich() {
       this.includeCountdown = true
