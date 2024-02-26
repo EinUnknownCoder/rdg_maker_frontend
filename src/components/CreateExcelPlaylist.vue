@@ -100,10 +100,10 @@
               <v-switch label="Check YT URLs" v-model="checkYTURL"></v-switch>
             </v-col>
             <v-col cols="12" md="3">
-              <v-switch label="Remove Dancer Text in Timestamp" v-model="removeDancer"></v-switch>
+              <v-text-field label="Start Checking YT URL from" v-model="checkYTURLPosition"></v-text-field>
             </v-col>
             <v-col cols="12" md="3">
-              <v-switch disabled label="WIP"></v-switch>
+              <v-switch label="Remove Dancer Text in Timestamp" v-model="removeDancer"></v-switch>
             </v-col>
             <v-col cols="12" md="3">
               <v-switch disabled label="WIP"></v-switch>
@@ -164,7 +164,7 @@ export default {
     countdownVoice: "Salli",
     countdownLengths: [3, 5],
     countdownLength: 3,
-    coverImages: ["RDGMaker", "VAO", "KPopperStuttgart", "RDGStuttgart", "RDGKarlsruhe", "RPDMunich", "ARDGGoeppingen", "KBlast"],
+    coverImages: ["RDGMaker", "VAO", "KPopperStuttgart", "RDGStuttgart", "RDGKarlsruhe", "RPDMunich", "ARDGGoeppingen", "KBlast", "ComicConStuttgart"],
     coverImage: "RDGMaker",
     playlistAmount: 1,
     randomizePlaylist: true,
@@ -172,7 +172,8 @@ export default {
     tenSecondSilenceAtEnd: true,
     fileName: "",
     checkYTURL: true,
-    removeDancer: false
+    removeDancer: false,
+    checkYTURLPosition: 1
   }),
 
   computed: {
@@ -222,7 +223,8 @@ export default {
         tenSecondSilenceAtEnd: this.tenSecondSilenceAtEnd,
         fileName: this.fileName,
         checkYTURL: this.checkYTURL,
-        removeDancer: this.removeDancer
+        removeDancer: this.removeDancer,
+        checkYTURLPosition: this.checkYTURLPosition
       }).then(response => (this.timestamps = response.data))
     },
     resetCreateButton() {
@@ -257,7 +259,7 @@ export default {
       this.coverImage = "RDGStuttgart"
       this.randomizePlaylist = true
       this.backendConformation = true
-      this.fileName= "9999-12-31_RDG_Stuttgart_V0"
+      this.fileName= "2024-00-00_RDG_Stuttgart_V"
       this.playlistAmount = 4
     },
     presetRDGKarlsruhe() {
@@ -275,7 +277,7 @@ export default {
       this.randomizePlaylist = true
       this.backendConformation = true
       this.playlistAmount = 2
-      this.fileName = "9999-12-31_RDG_Karlsruhe_V0"
+      this.fileName = "2024-00-00_RDG_Karlsruhe_V"
       this.removeDancer = true
     },
     presetRPDMunich() {
@@ -291,7 +293,8 @@ export default {
       this.countdownLength = 3
       this.coverImage = "RPDMunich"
       this.randomizePlaylist = false
-      this.backendConformation = false
+      this.backendConformation = false,
+      this.fileName = "2024-00-00_RPD_Munich_V"
     },
     presetARDGGoeppingen() {
       this.includeCountdown = true
@@ -307,6 +310,8 @@ export default {
       this.coverImage = "ARDGGoeppingen"
       this.randomizePlaylist = true
       this.backendConformation = true
+      this.fileName = "2024-03-02_ARDG_Göppingen_V"
+      this.playlistAmount = 4
     }
   }
 }
