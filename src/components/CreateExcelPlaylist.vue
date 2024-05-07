@@ -267,8 +267,8 @@ export default {
       this.countdownCrossfade = true
       this.includeIntro = false
       this.includeOutro = false
-      this.preTime = 3
-      this.postTime = 2
+      this.preTime = 0
+      this.postTime = 0
       this.fadeInTime = 2
       this.fadeOutTime = 2
       this.countdownVoice = "Salli"
@@ -276,8 +276,8 @@ export default {
       this.coverImage = "RDGKarlsruhe"
       this.randomizePlaylist = true
       this.backendConformation = true
-      this.playlistAmount = 2
-      this.fileName = "2024-00-00_RDG_Karlsruhe_V"
+      this.playlistAmount = 4
+      this.fileName = "2024-05-12_RDG_Karlsruhe_V"
       this.removeDancer = true
     },
     presetRPDMunich() {
