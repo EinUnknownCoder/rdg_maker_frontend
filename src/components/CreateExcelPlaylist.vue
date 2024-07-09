@@ -35,13 +35,13 @@
               <v-btn dark color="#0D47A1" block @click="presetRDGKarlsruhe">Karlsruhe</v-btn>
             </v-col>
             <v-col cols="12" md="2">
-              <v-btn dark color="dark-blue" block @click="presetRPDMunich">Munich</v-btn>
+              <v-btn dark color="black" block @click="presetRPDMunich">Munich</v-btn>
             </v-col>
             <v-col cols="12" md="2">
               <v-btn dark color="#FB8C00" block @click="presetARDGGoeppingen">Göppingen</v-btn>
             </v-col>
             <v-col cols="12" md="2">
-              <v-btn color="red" disabled block>TBD</v-btn>
+              <v-btn dark color="blue-grey" block @click="presetRPDPforzheim">Pforzheim</v-btn>
             </v-col>
 
             <v-col cols="12" md="3">
@@ -164,12 +164,12 @@ export default {
     countdownVoice: "Salli",
     countdownLengths: [3, 5],
     countdownLength: 3,
-    coverImages: ["RDGMaker", "VAO", "KPopperStuttgart", "RDGStuttgart", "RDGKarlsruhe", "RPDMunich", "ARDGGoeppingen", "KBlast", "ComicConStuttgart"],
+    coverImages: ["RDGMaker", "VAO", "KPopperStuttgart", "RDGStuttgart", "RDGKarlsruhe", "RPDMunich", "ARDGGoeppingen", "KBlast", "ComicConStuttgart", "PforzheimRPD"],
     coverImage: "RDGMaker",
     playlistAmount: 1,
     randomizePlaylist: true,
     backendConformation: true,
-    tenSecondSilenceAtEnd: true,
+    tenSecondSilenceAtEnd: false,
     fileName: "",
     checkYTURL: true,
     removeDancer: false,
@@ -259,7 +259,7 @@ export default {
       this.coverImage = "RDGStuttgart"
       this.randomizePlaylist = true
       this.backendConformation = true
-      this.fileName= "2024-00-00_RDG_Stuttgart_V"
+      this.fileName= "2024-00_RDG_Stuttgart_V"
       this.playlistAmount = 4
     },
     presetRDGKarlsruhe() {
@@ -267,8 +267,8 @@ export default {
       this.countdownCrossfade = true
       this.includeIntro = false
       this.includeOutro = false
-      this.preTime = 3
-      this.postTime = 2
+      this.preTime = 0
+      this.postTime = 0
       this.fadeInTime = 2
       this.fadeOutTime = 2
       this.countdownVoice = "Salli"
@@ -276,9 +276,9 @@ export default {
       this.coverImage = "RDGKarlsruhe"
       this.randomizePlaylist = true
       this.backendConformation = true
-      this.playlistAmount = 2
-      this.fileName = "2024-00-00_RDG_Karlsruhe_V"
-      this.removeDancer = true
+      this.playlistAmount = 4
+      this.fileName = "2024-00_RDG_Karlsruhe_V"
+      this.removeDancer = false
     },
     presetRPDMunich() {
       this.includeCountdown = true
@@ -286,7 +286,7 @@ export default {
       this.includeIntro = false
       this.includeOutro = false
       this.preTime = 0
-      this.postTime = 1
+      this.postTime = 0
       this.fadeInTime = 2
       this.fadeOutTime = 2
       this.countdownVoice = "Salli"
@@ -294,15 +294,15 @@ export default {
       this.coverImage = "RPDMunich"
       this.randomizePlaylist = false
       this.backendConformation = false,
-      this.fileName = "2024-00-00_RPD_Munich_V"
+      this.fileName = "2024-00_RPD_Munich_V"
     },
     presetARDGGoeppingen() {
       this.includeCountdown = true
       this.countdownCrossfade = true
       this.includeIntro = false
       this.includeOutro = false
-      this.preTime = 5
-      this.postTime = 3
+      this.preTime = 3
+      this.postTime = 1
       this.fadeInTime = 2
       this.fadeOutTime = 2
       this.countdownVoice = "Salli"
@@ -310,7 +310,24 @@ export default {
       this.coverImage = "ARDGGoeppingen"
       this.randomizePlaylist = true
       this.backendConformation = true
-      this.fileName = "2024-03-02_ARDG_Göppingen_V"
+      this.fileName = "2024-00_ARDG_Göppingen_V"
+      this.playlistAmount = 3
+    },
+    presetRPDPforzheim() {
+      this.includeCountdown = true
+      this.countdownCrossfade = true
+      this.includeIntro = false
+      this.includeOutro = false
+      this.preTime = 3
+      this.postTime = 1
+      this.fadeInTime = 2
+      this.fadeOutTime = 2
+      this.countdownVoice = "Salli"
+      this.countdownLength = 3
+      this.coverImage = "PforzheimRPD"
+      this.randomizePlaylist = true
+      this.backendConformation = true
+      this.fileName = "2024-00_RPD_Pforzheim_V"
       this.playlistAmount = 4
     }
   }
