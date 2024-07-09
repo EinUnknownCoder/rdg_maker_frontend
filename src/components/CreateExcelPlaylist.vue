@@ -277,13 +277,8 @@ export default {
       this.randomizePlaylist = true
       this.backendConformation = true
       this.playlistAmount = 4
-<<<<<<< HEAD
       this.fileName = "2024-00_RDG_Karlsruhe_V"
       this.removeDancer = false
-=======
-      this.fileName = "2024-05-12_RDG_Karlsruhe_V"
-      this.removeDancer = true
->>>>>>> 15d5edfcb588c04382f1e720dc7f07e27e9c0641
     },
     presetRPDMunich() {
       this.includeCountdown = true
