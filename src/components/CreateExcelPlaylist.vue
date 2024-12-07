@@ -250,8 +250,8 @@ export default {
       this.countdownCrossfade = true
       this.includeIntro = false
       this.includeOutro = false
-      this.preTime = 2
-      this.postTime = 1
+      this.preTime = 8
+      this.postTime = 2
       this.fadeInTime = 2
       this.fadeOutTime = 2
       this.countdownVoice = "Salli"
@@ -268,7 +268,7 @@ export default {
       this.includeIntro = false
       this.includeOutro = false
       this.preTime = 0
-      this.postTime = 0
+      this.postTime = 1
       this.fadeInTime = 2
       this.fadeOutTime = 2
       this.countdownVoice = "Salli"
@@ -279,6 +279,7 @@ export default {
       this.playlistAmount = 4
       this.fileName = "2024-00_RDG_Karlsruhe_V"
       this.removeDancer = false
+      this.tenSecondSilenceAtEnd = true
     },
     presetRPDMunich() {
       this.includeCountdown = true
@@ -301,7 +302,7 @@ export default {
       this.countdownCrossfade = true
       this.includeIntro = false
       this.includeOutro = false
-      this.preTime = 3
+      this.preTime = 2
       this.postTime = 1
       this.fadeInTime = 2
       this.fadeOutTime = 2
@@ -311,7 +312,7 @@ export default {
       this.randomizePlaylist = true
       this.backendConformation = true
       this.fileName = "2024-00_ARDG_Göppingen_V"
-      this.playlistAmount = 3
+      this.playlistAmount = 4
     },
     presetRPDPforzheim() {
       this.includeCountdown = true
