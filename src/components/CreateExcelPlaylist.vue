@@ -24,10 +24,6 @@
       <v-col cols="12">
         <v-form>
           <v-row>
-
-            <v-col cols="12" md="2">
-              <v-btn dark color="#8E24AA" block @click="presetVAO">VAO</v-btn>
-            </v-col>
             <v-col cols="12" md="2">
               <v-btn color="light-blue" block @click="presetRDGStuttgart">Stuttgart</v-btn>
             </v-col>
@@ -42,6 +38,9 @@
             </v-col>
             <v-col cols="12" md="2">
               <v-btn dark color="blue-grey" block @click="presetRPDPforzheim">Pforzheim</v-btn>
+            </v-col>
+            <v-col cols="12" md="2">
+              <v-btn dark color="#8E24AA" block @click="presetRDGDuesseldorf">Düsseldorf</v-btn>
             </v-col>
 
             <v-col cols="12" md="3">
@@ -164,7 +163,7 @@ export default {
     countdownVoice: "Salli",
     countdownLengths: [3, 5],
     countdownLength: 3,
-    coverImages: ["RDGMaker", "VAO", "KPopperStuttgart", "RDGStuttgart", "RDGKarlsruhe", "RPDMunich", "ARDGGoeppingen", "KBlast", "ComicConStuttgart", "PforzheimRPD"],
+    coverImages: ["RDGMaker", "VAO", "KPopperStuttgart", "RDGStuttgart", "RDGKarlsruhe", "RPDMunich", "ARDGGoeppingen", "KBlast", "ComicConStuttgart", "PforzheimRPD", "RDGDDorf"],
     coverImage: "RDGMaker",
     playlistAmount: 1,
     randomizePlaylist: true,
@@ -259,7 +258,7 @@ export default {
       this.coverImage = "RDGStuttgart"
       this.randomizePlaylist = true
       this.backendConformation = true
-      this.fileName= "2024-00_RDG_Stuttgart_V"
+      this.fileName= "2025-00_RDG_Stuttgart_V"
       this.playlistAmount = 4
     },
     presetRDGKarlsruhe() {
@@ -277,7 +276,7 @@ export default {
       this.randomizePlaylist = true
       this.backendConformation = true
       this.playlistAmount = 4
-      this.fileName = "2024-00_RDG_Karlsruhe_V"
+      this.fileName = "2025-00_RDG_Karlsruhe_V"
       this.removeDancer = false
       this.tenSecondSilenceAtEnd = true
     },
@@ -295,7 +294,7 @@ export default {
       this.coverImage = "RPDMunich"
       this.randomizePlaylist = false
       this.backendConformation = false,
-      this.fileName = "2024-00_RPD_Munich_V"
+      this.fileName = "2025-00_RPD_Munich_V"
     },
     presetARDGGoeppingen() {
       this.includeCountdown = true
@@ -311,7 +310,7 @@ export default {
       this.coverImage = "ARDGGoeppingen"
       this.randomizePlaylist = true
       this.backendConformation = true
-      this.fileName = "2024-00_ARDG_Göppingen_V"
+      this.fileName = "2025-00_ARDG_Göppingen_V"
       this.playlistAmount = 4
     },
     presetRPDPforzheim() {
@@ -319,8 +318,8 @@ export default {
       this.countdownCrossfade = true
       this.includeIntro = false
       this.includeOutro = false
-      this.preTime = 3
-      this.postTime = 1
+      this.preTime = 6
+      this.postTime = 2
       this.fadeInTime = 2
       this.fadeOutTime = 2
       this.countdownVoice = "Salli"
@@ -328,8 +327,25 @@ export default {
       this.coverImage = "PforzheimRPD"
       this.randomizePlaylist = true
       this.backendConformation = true
-      this.fileName = "2024-00_RPD_Pforzheim_V"
+      this.fileName = "2025-00_RPD_Pforzheim_V"
       this.playlistAmount = 4
+    },
+    presetRDGDuesseldorf() {
+      this.includeCountdown = true
+      this.countdownCrossfade = true
+      this.includeIntro = false
+      this.includeOutro = false
+      this.preTime = 5
+      this.postTime = 3
+      this.fadeInTime = 2
+      this.fadeOutTime = 2
+      this.countdownVoice = "Salli"
+      this.countdownLength = 3
+      this.coverImage = "RDGDDorf"
+      this.randomizePlaylist = true
+      this.backendConformation = true
+      this.fileName = "2025-00_RDG_DDorf_V"
+      this.playlistAmount = 2
     }
   }
 }
