@@ -43,6 +43,25 @@
               <v-btn dark color="#8E24AA" block @click="presetRDGDuesseldorf">Düsseldorf</v-btn>
             </v-col>
 
+            <v-col cols="12" md="2">
+              <v-btn color="light-blue" block @click="presetRDGStuttgartHalftime">Stuttgart: Halftime</v-btn>
+            </v-col>
+            <v-col cols="12" md="2">
+              <v-btn disabled dark color="#0D47A1" block @click="presetRDGKarlsruhe">Karlsruhe</v-btn>
+            </v-col>
+            <v-col cols="12" md="2">
+              <v-btn disabled dark color="black" block @click="presetRPDMunich">Munich</v-btn>
+            </v-col>
+            <v-col cols="12" md="2">
+              <v-btn disabled dark color="#FB8C00" block @click="presetARDGGoeppingen">Göppingen</v-btn>
+            </v-col>
+            <v-col cols="12" md="2">
+              <v-btn disabled dark color="blue-grey" block @click="presetRPDPforzheim">Pforzheim</v-btn>
+            </v-col>
+            <v-col cols="12" md="2">
+              <v-btn disabled dark color="#8E24AA" block @click="presetRDGDuesseldorf">Düsseldorf</v-btn>
+            </v-col>
+
             <v-col cols="12" md="3">
               <v-switch v-model="includeCountdown" label="Countdown"></v-switch>
             </v-col>
@@ -70,7 +89,7 @@
             </v-col>
 
             <v-col cols="12" md="3">
-              <v-slider v-model="playlistAmount" hint="Amount of Playlists (WIP)" thumb-label="always" :thumb-size="20" min="1" max="5" persistent-hint></v-slider>
+              <v-slider v-model="playlistAmount" hint="Amount of Playlists (WIP)" thumb-label="always" :thumb-size="20" min="1" max="10" persistent-hint></v-slider>
             </v-col>
             <v-col cols="12" md="3">
               <v-select label="Countdown Voice" :items="countdownVoices" v-model="countdownVoice"></v-select>
@@ -163,7 +182,7 @@ export default {
     countdownVoice: "Salli",
     countdownLengths: [3, 5],
     countdownLength: 3,
-    coverImages: ["RDGMaker", "VAO", "KPopperStuttgart", "RDGStuttgart", "RDGKarlsruhe", "RPDMunich", "ARDGGoeppingen", "KBlast", "ComicConStuttgart", "PforzheimRPD", "RDGDDorf"],
+    coverImages: ["RDGMaker", "VAO", "KPopperStuttgart", "RDGStuttgart", "RDGKarlsruhe", "RPDMunich", "ARDGGoeppingen", "KBlast", "ComicConStuttgart", "PforzheimRPD", "RDGDDorf", "RDGStuttgart2"],
     coverImage: "RDGMaker",
     playlistAmount: 1,
     randomizePlaylist: true,
@@ -318,7 +337,7 @@ export default {
       this.countdownCrossfade = true
       this.includeIntro = false
       this.includeOutro = false
-      this.preTime = 6
+      this.preTime = 8
       this.postTime = 2
       this.fadeInTime = 2
       this.fadeOutTime = 2
@@ -346,6 +365,26 @@ export default {
       this.backendConformation = true
       this.fileName = "2025-00_RDG_DDorf_V"
       this.playlistAmount = 2
+    },
+    presetRDGStuttgartHalftime() {
+      this.includeCountdown = true
+      this.countdownCrossfade = false
+      this.includeIntro = false
+      this.includeOutro = false
+      this.preTime = 0
+      this.postTime = 0
+      this.fadeInTime = 0
+      this.fadeOutTime = 0
+      this.countdownVoice = "Salli"
+      this.countdownLength = 3
+      this.coverImage = "RDGStuttgart2"
+      this.randomizePlaylist = true
+      this.backendConformation = true
+      this.fileName = "2025-00_RDG_Stuttgart_Halftime_Performance"
+      this.playlistAmount = 10
+      this.randomizePlaylist = false
+      this.backendConformation = false
+      this.checkYTURL = false
     }
   }
 }
